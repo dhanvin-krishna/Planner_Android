@@ -1,0 +1,10 @@
+Text('ADD NEW TASK', style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontSize: 34
+                    )  ),
+                    )
+
+  IconButton(
+                    onPressed: (){}, 
+                    icon: Icon(Icons.arrow_back_ios)
+                  ),

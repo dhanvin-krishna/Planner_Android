@@ -1,0 +1,19 @@
+  bottomNavigationBar: BottomNavigationBar(
+          currentIndex: currentint,
+          onTap: (index) => setState(() {
+                currentint = index;
+              }),
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.menu),
+              label: 'Menu',
+            ),
+          ]),
