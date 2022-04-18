@@ -8,3 +8,7 @@ Text('ADD NEW TASK', style: GoogleFonts.poppins(
                     onPressed: (){}, 
                     icon: Icon(Icons.arrow_back_ios)
                   ),
+
+
+color:
+Color.fromARGB(237, 10, 120, 255),

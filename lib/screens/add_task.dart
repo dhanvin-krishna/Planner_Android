@@ -2,12 +2,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
+import 'package:planner/screens/home.dart';
 
 class AddTask extends StatelessWidget {
   const AddTask({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final subjectctrl = TextEditingController();
+    final lessonctrl = TextEditingController();
+    final descriptionctrl = TextEditingController();
+    var date = DateTime.now();
     return Scaffold(
       body: Container(
         child: ListView(
@@ -19,7 +25,10 @@ class AddTask extends StatelessWidget {
                      child: Row(
                        children: [
                          IconButton(
-                            onPressed: (){}, 
+                            onPressed: (){
+                               Navigator.pop(context,
+                               MaterialPageRoute(builder: (context) =>  Home()));
+                            }, 
                             icon: Icon(Icons.arrow_back_ios)
                           ),
                        ],
@@ -54,6 +63,7 @@ class AddTask extends StatelessWidget {
                     child: Column(
                       children: [
                         TextFormField(
+                          controller: subjectctrl,
                           decoration: InputDecoration(
                             hintText: 'Add Subject',
                             fillColor: Color.fromRGBO(209, 209, 209, 100),
@@ -88,6 +98,7 @@ class AddTask extends StatelessWidget {
                     child: Column(
                       children: [
                         TextFormField(
+                          controller: lessonctrl,
                           decoration: InputDecoration(
                             hintText: 'Add Lesson',
                             fillColor: Color.fromRGBO(209, 209, 209, 100),
@@ -122,6 +133,7 @@ class AddTask extends StatelessWidget {
                     child: Column(
                       children: [
                         TextFormField(
+                          controller: descriptionctrl,
                           decoration: InputDecoration(
                             hintText: 'Add Description',
                             fillColor: Color.fromRGBO(209, 209, 209, 100),
@@ -138,16 +150,31 @@ class AddTask extends StatelessWidget {
                     )
                   ),
 
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      
-                    ),
-                    onPressed: (){}, 
-                    child: Text('ADD TASK')
-                    )
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ElevatedButton(
+                       style: ElevatedButton.styleFrom(
+                          minimumSize: Size(57, 57),
+                          primary: Color.fromARGB(236, 2, 115, 253),
+                       ),
+                        onPressed: (){
+                          print(subjectctrl.text);
+                          print(lessonctrl.text);
+                          print(descriptionctrl.text);
+                          print( DateFormat('dd').format(date));
+                        }, 
+                        child: Text('ADD TASK', style: GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.w500),)
+                        ),
+                  ),
+                  
           ],
         ),
       ),
     );
+  
   }
+ 
 }
+
+
+
