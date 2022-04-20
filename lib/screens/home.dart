@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:planner/screens/menu.dart';
 import 'package:planner/screens/search.dart';
 import 'package:planner/screens/task_list.dart';
+import 'package:planner/screens/tasks.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -94,27 +95,7 @@ class _HomeState extends State<Home> {
               Navigator.push(context,
               MaterialPageRoute(builder: (context) =>  TaskList()));
             },
-            child: Container(
-              height: 93,
-              width: 348,
-              margin: EdgeInsets.only(left: 16, right: 16, top: 30),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(17),
-                  color: Color.fromARGB(238, 230, 184, 4)),
-              child: Stack(
-                children: [
-                  Positioned(
-                      top: 17,
-                      left: 15,
-                      child: Text(today,
-                          style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                  fontSize: 36,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white))))
-                ],
-              ),
-            ),
+            child: SingleChildScrollView(child: Tasks())
           )
         ],
       ),
