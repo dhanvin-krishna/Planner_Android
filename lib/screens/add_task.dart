@@ -3,7 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:planner/db/functions/db_functions.dart';
+import 'package:planner/db/models/data_model.dart';
 import 'package:planner/screens/home.dart';
+import 'package:planner/screens/task_list.dart';
 
 class AddTask extends StatelessWidget {
   const AddTask({Key? key}) : super(key: key);
@@ -14,6 +17,7 @@ class AddTask extends StatelessWidget {
     final lessonctrl = TextEditingController();
     final descriptionctrl = TextEditingController();
     var date = DateTime.now();
+    final reqDate = DateFormat('dd').format(date);
     return Scaffold(
       body: Container(
         child: ListView(
@@ -161,7 +165,20 @@ class AddTask extends StatelessWidget {
                           print(subjectctrl.text);
                           print(lessonctrl.text);
                           print(descriptionctrl.text);
-                          print( DateFormat('dd').format(date));
+                          print( DateFormat('EEE,d/M/y').format(date));
+
+                          //Values from textbox
+                          final _subject = subjectctrl.text;
+                          final _lesson = lessonctrl.text;
+                          final _description = descriptionctrl.text;
+                          final _datestr = DateFormat('EEE,d/m/y').format(date);
+                          DateTime _date = DateFormat('EEE,d/m/y').parseStrict(_datestr);
+
+
+                          //task model from db
+                         final TaskData = TaskModel(subject: _subject, lesson: _lesson, description: _description, date: _date);
+                         addTask(TaskData);
+                         Navigator.push(context,MaterialPageRoute(builder: ((context) => TaskList())));
                         }, 
                         child: Text('ADD TASK', style: GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.w500),)
                         ),
