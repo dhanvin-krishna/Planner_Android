@@ -12,3 +12,49 @@ Text('ADD NEW TASK', style: GoogleFonts.poppins(
 
 color:
 Color.fromARGB(237, 10, 120, 255),
+
+(BuildContext, List<TaskModel>, Widget? child) {
+            return ListView.separated(
+              itemBuilder: ((context, index) {
+                return ListTile(
+                  title: Container(
+                    child: ListView(
+                      children: [
+                        Text('data'),
+                        Text('data'),
+                        Text('data'),
+                        Text('data'),
+                      ],
+                    ),
+                  ),
+                  );
+              }),
+              separatorBuilder:  (context,index){
+                return const Divider();
+              },
+              itemCount: 50,
+              );
+          })
+
+
+        Container(
+              height: 93,
+              width: 348,
+              margin: EdgeInsets.only(left: 16, right: 16, top: 30),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(17),
+                  color: Color.fromARGB(238, 230, 184, 4)),
+              child: Stack(
+                children: [
+                  Positioned(
+                      top: 17,
+                      left: 15,
+                      child: Text(today,
+                          style: GoogleFonts.poppins(
+                              textStyle: TextStyle(
+                                  fontSize: 36,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white))))
+                ],
+              ),
+            ),
