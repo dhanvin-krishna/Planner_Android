@@ -1,9 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:planner/db/functions/db_functions.dart';
-import 'package:planner/db/models/data_model.dart';
+
+import '../db/models/data_model.dart';
 
 class Tasks extends StatefulWidget {
   const Tasks({ Key? key }) : super(key: key);
@@ -15,31 +15,25 @@ class Tasks extends StatefulWidget {
 class _TasksState extends State<Tasks> {
   @override
   Widget build(BuildContext context) {
-    return  ValueListenableBuilder(
+    return ValueListenableBuilder(
       valueListenable: tasklist, 
       builder: (BuildContext context, List<TaskModel> tasklist, Widget? child){
         return ListView.separated(
           itemBuilder: ((context, index) {
-            final taskdata = tasklist[index];
-            return ListBody(
-              children: [
-                 Text(taskdata.subject, style: GoogleFonts.poppins(textStyle: TextStyle(fontSize:36,fontWeight: FontWeight.w600 ))),
-                  
-                
-
-              ],
+            final taskData = tasklist[index];
+            return ListTile(
+              leading: Text(taskData.subject),
+              trailing: Icon(Icons.arrow_forward_ios_rounded)
 
             );
-
-    
-
           }), 
-          separatorBuilder: (context,index){
-            return const Divider();
+          separatorBuilder: (ctx,index){
+            return  Padding(padding: EdgeInsets.all(5.0));
           }, 
           itemCount: tasklist.length
           );
-      }  
+        
+      }
       );
   }
 }
