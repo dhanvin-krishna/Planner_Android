@@ -5,6 +5,7 @@ import 'package:planner/screens/add_task.dart';
 import 'package:planner/screens/home.dart';
 import 'package:planner/screens/menu.dart';
 import 'package:planner/screens/search.dart';
+import 'package:planner/screens/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
         
-      home: Main(),
+      home: SplashScreen(),
     );
   }
 }
