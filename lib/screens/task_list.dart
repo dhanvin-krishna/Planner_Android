@@ -22,8 +22,8 @@ class _TaskListState extends State<TaskList> {
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: tasklist, 
-        builder: (BuildContext context, List<TaskModel> tasklist, Widget? child){
-          return ListView.separated(
+        builder:  (BuildContext context, List<TaskModel> tasklist, Widget? child){
+          return ListView.separated(       
             itemBuilder: ((context, index) {
               final taskData = tasklist[index]; 
               final date = taskData.date;

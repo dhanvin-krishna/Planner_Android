@@ -3,10 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:planner/db/functions/db_functions.dart';
 import 'package:planner/screens/menu.dart';
 import 'package:planner/screens/search.dart';
 import 'package:planner/screens/task_list.dart';
 import 'package:planner/screens/tasks.dart';
+
+import '../db/models/data_model.dart';
 
 class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
@@ -55,7 +58,7 @@ class _HomeState extends State<Home> {
               children: [
                 Positioned(
                     top: 20,
-                    left: 29,
+                    left: 35,
                     child: Text(
                       DateFormat('dd').format(date),
                       style: GoogleFonts.poppins(
@@ -65,7 +68,7 @@ class _HomeState extends State<Home> {
                 // day
                 Positioned(
                   top: 40,
-                  left: 145,
+                  left: 149,
                   child: Text(
                     DateFormat('EEEE').format(date),
                     style: GoogleFonts.poppins(
@@ -88,15 +91,41 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          
+         //TASK CONTAINER
+         
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context)=> TaskList() ));
+              },
+              child: Container(
+                  height: 93,
+                  width: 348,
+                  margin: EdgeInsets.only(left: 16, right: 16, top: 30),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(17),
+                      color: Color.fromARGB(238, 230, 184, 4)),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                          top: 17,
+                          left: 15,
+                          child: Text('Todays tasks',
+                              style: GoogleFonts.poppins(
+                                  textStyle: TextStyle(
+                                      fontSize: 36,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white))))
+                    ],
+                  ),
+                ),
+            ),
+        
 
-          // TASK CONTAINER
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context,
-              MaterialPageRoute(builder: (context) =>  TaskList()));
-            },
-            child: SingleChildScrollView(child: Tasks())
-          )
+        
+         
+
+        
         ],
       ),
     );
