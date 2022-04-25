@@ -58,3 +58,12 @@ Color.fromARGB(237, 10, 120, 255),
                 ],
               ),
             ),
+
+
+Text(taskData.subject),
+                            Text('First revision '),
+                            Text(DateFormat('EEE,d/M/y').format(firstRev)),
+                            Text('Second Revision'),
+                            Text(DateFormat('EEE,d/M/y').format(secRev)),
+                            Text('Third revision'),
+                            Text(DateFormat('EEE,d/M/y').format(thirdRev)),
