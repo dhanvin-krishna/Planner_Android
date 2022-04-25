@@ -1,13 +1,21 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:planner/screens/add_task.dart';
 import 'package:planner/screens/home.dart';
 import 'package:planner/screens/menu.dart';
 import 'package:planner/screens/search.dart';
 import 'package:planner/screens/splash.dart';
 
-void main() {
+import 'db/models/data_model.dart';
+
+Future<void>  main() async {
+  await Hive.initFlutter();
+  if (!Hive.isAdapterRegistered(TaskModelAdapter().typeId)) {
+    Hive.registerAdapter(TaskModelAdapter());
+    
+  }
   runApp(const MyApp());
 }
 
@@ -23,7 +31,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
         
-      home: SplashScreen(),
+      home: Main()
     );
   }
 }
