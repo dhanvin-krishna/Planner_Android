@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:planner/db/functions/db_functions.dart';
 import 'package:planner/db/models/data_model.dart';
@@ -12,56 +13,62 @@ class TaskList extends StatefulWidget {
   State<TaskList> createState() => _TaskListState();
 }
 
-
-
-
-
 class _TaskListState extends State<TaskList> {
   @override
   Widget build(BuildContext context) {
+    getTaskData();
     return Scaffold(
       body: ValueListenableBuilder(
         valueListenable: tasklist, 
         builder:  (BuildContext context, List<TaskModel> tasklist, Widget? child){
-          return ListView.separated(       
-            itemBuilder: ((context, index) {
-              final taskData = tasklist[index]; 
-              final date = taskData.date;
-              final firstRev = date.add( Duration(days: 1));
-              final secRev = date.add( Duration(days: 7));
-              final thirdRev = date.add( Duration(days: 21));
-              print( DateFormat('EEE,d/M/y').format(firstRev));
-              print( DateFormat('EEE,d/M/y').format(secRev));
-              print( DateFormat('EEE,d/M/y').format(thirdRev));
-              return ListTile(
-                title: Center(
-                  child: Column(
-                    // ignore: prefer_const_literals_to_create_immutables
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListView.separated(       
+              itemBuilder: ((context, index) {
+                final taskData = tasklist[index]; 
+                final date = taskData.date;
+                final firstRev = date.add( Duration(days: 1));
+                final secRev = date.add( Duration(days: 7));
+                final thirdRev = date.add( Duration(days: 21));
+                print( DateFormat('EEE,d/M/y').format(firstRev));
+                print( DateFormat('EEE,d/M/y').format(secRev));
+                print( DateFormat('EEE,d/M/y').format(thirdRev));
+                return Card(
+                  child: ExpansionTile(
+                    title:Text(taskData.subject,style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 27,fontWeight: FontWeight.w500)),),
+                    
                     children: [
-                            Text(taskData.subject),
-                            Text('First revision '),
-                            Text(DateFormat('EEE,d/M/y').format(firstRev)),
-                            Text('Second Revision'),
-                            Text(DateFormat('EEE,d/M/y').format(secRev)),
-                            Text('Third revision'),
-                            Text(DateFormat('EEE,d/M/y').format(thirdRev)),
+                      ListTile(
+                        title: Column(
+                          children: [
+                            Text('First revision',style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25)),),
+                              Text(DateFormat('EEE,d/M/y').format(firstRev),style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25)),),
+                              Text('Second Revision',style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25)),),
+                              Text(DateFormat('EEE,d/M/y').format(secRev),style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25)),),
+                              Text('Third revision',style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25)),),
+                              Text(DateFormat('EEE,d/M/y').format(thirdRev),style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25)),),
 
+                              Text(taskData.lesson,style: GoogleFonts.poppins(textStyle: TextStyle(fontSize: 25)),) ,
 
+                          ],
+                          
+                        ),
+                         
+                      )
 
-                        
-                      
-                           
-    
                     ],
+
                   ),
-                ),
-              );
-            }), 
-            separatorBuilder: (ctx,index){
-              return const Divider();
-            }, 
-            itemCount: tasklist.length
-            );
+                  
+
+                );
+              }), 
+              separatorBuilder: (ctx,index){
+                return const Divider();
+              }, 
+              itemCount: tasklist.length
+              ),
+          );
     
         }
         
