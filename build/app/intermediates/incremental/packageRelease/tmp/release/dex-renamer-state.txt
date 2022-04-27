@@ -1,0 +1,4 @@
+#Tue Apr 26 16:55:46 IST 2022
+base.0=G\:\\Dhanvin Work\\planner\\planner\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
