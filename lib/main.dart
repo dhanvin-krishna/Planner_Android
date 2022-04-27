@@ -11,6 +11,7 @@ import 'package:planner/screens/splash.dart';
 import 'db/models/data_model.dart';
 
 Future<void>  main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   if (!Hive.isAdapterRegistered(TaskModelAdapter().typeId)) {
     Hive.registerAdapter(TaskModelAdapter());
