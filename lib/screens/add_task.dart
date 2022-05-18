@@ -172,13 +172,14 @@ class AddTask extends StatelessWidget {
                           final _lesson = lessonctrl.text;
                           final _description = descriptionctrl.text;
                           final _datestr = DateFormat('EEE,d/m/y').format(date);
-                          DateTime _date = DateFormat('EEE,d/m/y').parseStrict(_datestr);
+                          DateTime _date =DateTime.now();
 
 
                           //task model from db
                          final TaskData = TaskModel(subject: _subject, lesson: _lesson, description: _description, date: _date);
                          addTask(TaskData);
                          Navigator.push(context,MaterialPageRoute(builder: ((context) => TaskList())));
+                         
                         }, 
                         child: Text('ADD TASK', style: GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.w500),)
                         ),
