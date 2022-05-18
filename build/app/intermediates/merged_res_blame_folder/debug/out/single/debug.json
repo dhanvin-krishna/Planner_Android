@@ -16,10 +16,6 @@
         "source": "G:\\Dhanvin Work\\planner\\planner\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "G:\\Dhanvin Work\\planner\\planner\\build\\app\\intermediates\\res\\merged\\debug\\drawable_launch_background.xml.flat",
-        "source": "G:\\Dhanvin Work\\planner\\planner\\android\\app\\src\\main\\res\\drawable\\launch_background.xml"
-    },
-    {
         "merged": "G:\\Dhanvin Work\\planner\\planner\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "G:\\Dhanvin Work\\planner\\planner\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },

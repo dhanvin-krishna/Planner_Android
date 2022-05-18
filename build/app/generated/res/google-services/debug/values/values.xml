@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">760659010085-ekf4l6v318a6o4mkejsreevch9lld9qi.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">760659010085</string>
+    <string name="google_api_key" translatable="false">AIzaSyCM3EnXrKXSfQqt_w3EhzoQ-cOJuuEuYX4</string>
+    <string name="google_app_id" translatable="false">1:760659010085:android:d010d354e2fc8c0354d5cc</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCM3EnXrKXSfQqt_w3EhzoQ-cOJuuEuYX4</string>
+    <string name="google_storage_bucket" translatable="false">planner-50215.appspot.com</string>
+    <string name="project_id" translatable="false">planner-50215</string>
+</resources>
